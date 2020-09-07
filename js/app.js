@@ -18,16 +18,22 @@ Seattle = {
   maxCustPerHour   : 65,
   avgCookiePerSale : 6.3,
   hourlySales: [],
+  totalSales: 0,
 
   randHourly : function() {
     return rand(this.minCustPerHour, this.maxCustPerHour) * this.avgCookiePerSale;
   },
 
   generateHourlySales : function() {
+    // clear out any pre-exising sales
+    this.hourSales = [];
+    this.totalSales = 0;
+
     // generate a value for each hour 6am to 7pm, we'll use military time
     // to represent each hour
     for(var i = 6; i<=19; i++) {
-      this.hourlySales.push(Math.floor(this.randHourly()+0.5));
+      var sales = this.hourlySales.push(Math.floor(this.randHourly()+0.5));
+      this.totalSales += sales;
     }
   }
 };
@@ -43,10 +49,15 @@ Tokyo = {
   },
 
   generateHourlySales : function() {
+    // clear out any pre-exising sales
+    this.hourSales = [];
+    this.totalSales = 0;
+
     // generate a value for each hour 6am to 7pm, we'll use military time
     // to represent each hour
     for(var i = 6; i<=19; i++) {
-      this.hourlySales.push(Math.floor(this.randHourly()+0.5));
+      var sales = this.hourlySales.push(Math.floor(this.randHourly()+0.5));
+      this.totalSales += sales;
     }
   }
 };
@@ -62,10 +73,15 @@ Dubai = {
   },
 
   generateHourlySales : function() {
+    // clear out any pre-exising sales
+    this.hourSales = [];
+    this.totalSales = 0;
+
     // generate a value for each hour 6am to 7pm, we'll use military time
     // to represent each hour
     for(var i = 6; i<=19; i++) {
-      this.hourlySales.push(Math.floor(this.randHourly()+0.5));
+      var sales = this.hourlySales.push(Math.floor(this.randHourly()+0.5));
+      this.totalSales += sales;
     }
   }
 };
@@ -81,10 +97,15 @@ Paris = {
   },
 
   generateHourlySales : function() {
+    // clear out any pre-exising sales
+    this.hourSales = [];
+    this.totalSales = 0;
+
     // generate a value for each hour 6am to 7pm, we'll use military time
     // to represent each hour
     for(var i = 6; i<=19; i++) {
-      this.hourlySales.push(Math.floor(this.randHourly()+0.5));
+      var sales = this.hourlySales.push(Math.floor(this.randHourly()+0.5));
+      this.totalSales += sales;
     }
   }
 };
@@ -100,10 +121,15 @@ Lima = {
   },
 
   generateHourlySales : function() {
+    // clear out any pre-exising sales
+    this.hourSales = [];
+    this.totalSales = 0;
+
     // generate a value for each hour 6am to 7pm, we'll use military time
     // to represent each hour
     for(var i = 6; i<=19; i++) {
-      this.hourlySales.push(Math.floor(this.randHourly()+0.5));
+      var sales = this.hourlySales.push(Math.floor(this.randHourly()+0.5));
+      this.totalSales += sales;
     }
   }
 };
