@@ -166,6 +166,7 @@ function do_the_DOM() {
 
     // For earch store ul, create an hourly breakdown
     var hSales = Stores[i].hourlySales;
+    var salesTotal = 0;
     for(var j = 0; j<hSales.length; j++) {
       //console.log(Stores[i].name + " : (j) "+hSales[j]);
       var li = document.createElement('li');
@@ -178,8 +179,15 @@ function do_the_DOM() {
         else
           li.textContent = (j-6)+"pm: " + hSales[j] +" cookies";
       }
+      salesTotal += hSales[j];
       ul.append(li);
     }
+
+    // create one last line for the total sales
+    var myTotal = document.createElement('p');
+    myTotal.setAttribute("class", "salesTotal");
+    myTotal.textContent = "Total: "+salesTotal;
+    section.append(myTotal);
   }
 }
 

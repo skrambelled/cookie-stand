@@ -1,3 +1,5 @@
+
+
 section.salesList {
   margin: 5px;
   padding: 10px;
@@ -9,4 +11,14 @@ section.salesList {
 
 section.salesList > ul {
   padding-left: 15px;
+}
+
+section.salesList > ul > lh {
+  color: rgb(100, 62, 0);
+  font-size: 150%;
+}
+
+section.salesList .salesTotal {
+  margin: 0;
+  font-weight: bold;
 }
