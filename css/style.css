@@ -1,5 +1,18 @@
+/* styling for the front facing page */
 
+/* fonts
+font-family: 'Lora', serif;
+font-family: 'Open Sans', sans-serif;
+*/
 
+/* Global selector for debugging */
+/* * {
+  border-style: solid;
+  border-color: red;
+  border-width: 1px;
+} */
+
+/* Styling for the sales report page */
 section.salesList {
   margin: 5px;
   padding: 10px;
