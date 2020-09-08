@@ -1,3 +1,12 @@
-ul .salesList {
-  display: in-line;
+section.salesList {
+  margin: 5px;
+  padding: 10px;
+  display: inline-block;
+  border-style: solid;
+  border-width: 1px;
+  min-width: 160px;
+}
+
+section.salesList > ul {
+  padding-left: 15px;
 }
