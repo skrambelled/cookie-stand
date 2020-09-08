@@ -159,6 +159,7 @@ function do_the_DOM() {
     // For each store section, create an unordered list
     var ul = document.createElement("ul");
     section.append(ul);
+    ul.setAttribute("class", "salesList");
     var lh = document.createElement("lh");
     ul.append(lh);
     lh.textContent = Stores[i].name;
