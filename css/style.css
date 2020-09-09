@@ -18,7 +18,7 @@ body {
 
 /* Styling for the sales report page */
 
-#storesTable {
+table {
   border-collapse: collapse;
 }
 
@@ -30,13 +30,25 @@ tfoot > tr {
   font-weight: bold;
 }
 
-.totCookies {
+tfoot > tr > td {
+  text-align: right;
+}
+
+
+.total {
   color: rgb(0, 59, 0);
+  text-align: right;
   font-weight: bold;
 }
 
 .cookiesSold {
   border: solid thin grey;
+  text-align: right;
+  padding: 5px;
+}
+
+.employees {
+  border: solid thin darkred;
   text-align: right;
   padding: 5px;
 }

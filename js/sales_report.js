@@ -39,7 +39,7 @@ Store.prototype.generateHourlySales = function() {
   }
 };
 
-Store.prototype.renderInTableBody = function(tbody) {
+Store.prototype.renderInSalesTableBody = function(tbody) {
   // create a row
   var row = document.createElement('tr');
   tbody.append(row);
@@ -51,15 +51,36 @@ Store.prototype.renderInTableBody = function(tbody) {
   // create a new cell for each hour
   for(var i = 0; i<this.hourlySales.length; i++) {
     cell = document.createElement('td');
-    cell.setAttribute("class", "cookiesSold hour-"+i);
+    cell.setAttribute("class", "cookiesSold perHour-"+i);
     cell.textContent = this.hourlySales[i];
     row.append(cell);
   }
 
   var tot = document.createElement('td');
-  tot.setAttribute('class', 'totCookies');
+  tot.setAttribute('class', 'total');
   tot.textContent = this.totalSales;
   row.append(tot);
+};
+
+Store.prototype.renderInEmployeesTableBody = function(tbody) {
+  // create a row
+  var row = document.createElement('tr');
+  tbody.append(row);
+  // store name is the first cell in the row
+  var cell = document.createElement('th');
+  cell.textContent = this.storeName;
+  row.append(cell);
+
+  // create a new cell for each hour
+  for(var i = 0; i<this.hourlySales.length; i++) {
+    let employees = Math.ceil(this.hourlySales[i] / 20);
+    if(employees < 2)
+      employees = 2;
+    cell = document.createElement('td');
+    cell.setAttribute("class", "employees perHour-"+i);
+    cell.textContent = employees;
+    row.append(cell);
+  }
 };
 
 // rand int using inclusive min and max
@@ -109,15 +130,14 @@ function createTableFoot(table) {
   var tfoot = document.createElement('tfoot');
   table.append(tfoot);
 
-  // now lets makes totals row for each hour, and also
-  // for the store totals
+  // now lets makes totals row for each hour, and also for the store totals
   var row = document.createElement('tr');
   tfoot.append(row);
   var cell = document.createElement('td');
   row.append(cell); // empty cell as placeholder
 
   for(let i = 0; i<=queryHours(); i++) {
-    let nodes = document.getElementsByClassName("hour-"+i);
+    let nodes = table.getElementsByClassName("perHour-"+i);
     let tot = 0;
     for(let j = 0; j<nodes.length; j++) {
       tot += parseInt(nodes[j].textContent);
@@ -127,33 +147,43 @@ function createTableFoot(table) {
     row.append(cell);
   }
 
-  let nodes = document.getElementsByClassName("totCookies");
+  let nodes = document.getElementsByClassName("total");
   let tot = 0;
   for(let i = 0; i< nodes.length; i++) {
     tot += parseInt(nodes[i].textContent);
   }
-  cell = document.createElement('td');
-  cell.textContent = tot;
-  cell.setAttribute("id", "grandTotal");
-  row.append(cell);
+
+  if(table.id === 'salesTable') {
+    cell = document.createElement('td');
+    cell.textContent = tot;
+    cell.setAttribute("id", "grandTotal");
+    row.append(cell);
+  }
 
   return tfoot;
 }
 
 function buildTable() {
   // find our existing table
-  var table = document.getElementById("storesTable");
+  var salesTable = document.getElementById("salesTable");
+  var employeesTable = document.getElementById("employeesTable");
 
-  // create the sections of the table
-  createTableHead(table);
-
-  var tbody = createTableBody(table);
+  // create the sections of the sales table
+  createTableHead(salesTable);
+  var tbody = createTableBody(salesTable);
   for(let i=0; i<Stores.length; i++) {
     Stores[i].generateHourlySales();
-    Stores[i].renderInTableBody(tbody);
+    Stores[i].renderInSalesTableBody(tbody);
   }
+  createTableFoot(salesTable);
 
-  createTableFoot(table);
+  // now for the employee table
+  createTableHead(employeesTable);
+  tbody = createTableBody(employeesTable);
+  for(let i=0; i<Stores.length; i++) {
+    Stores[i].renderInEmployeesTableBody(tbody);
+  }
+  createTableFoot(employeesTable);
 }
 
 buildTable();
