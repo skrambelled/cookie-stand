@@ -26,6 +26,10 @@ table {
   font-size: 20px;
 }
 
+td {
+  width: 50px;
+}
+
 tfoot > tr {
   font-weight: bold;
 }
