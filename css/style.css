@@ -12,26 +12,43 @@ font-family: 'Open Sans', sans-serif;
   border-width: 1px;
 } */
 
+body {
+  background: lightgray;
+}
+
 /* Styling for the sales report page */
-section.salesList {
-  margin: 5px;
-  padding: 10px;
-  display: inline-block;
-  border-style: solid;
-  border-width: 1px;
-  min-width: 160px;
+
+table {
+  border-collapse: collapse;
 }
 
-section.salesList > ul {
-  padding-left: 15px;
+#grandTotal {
+  font-size: 20px;
 }
 
-section.salesList > ul > lh {
-  color: rgb(100, 62, 0);
-  font-size: 150%;
-}
-
-section.salesList .salesTotal {
-  margin: 0;
+tfoot > tr {
   font-weight: bold;
+}
+
+tfoot > tr > td {
+  text-align: right;
+}
+
+
+.total {
+  color: rgb(0, 59, 0);
+  text-align: right;
+  font-weight: bold;
+}
+
+.cookiesSold {
+  border: solid thin grey;
+  text-align: right;
+  padding: 5px;
+}
+
+.employees {
+  border: solid thin darkred;
+  text-align: right;
+  padding: 5px;
 }
