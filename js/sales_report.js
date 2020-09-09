@@ -19,9 +19,9 @@ function Store(name, min, max, avg, hSales = [], tSales = 0) {
   this.totalSales = tSales;
 }
 
-Store.prototype.randHourly = function() {
+Store.prototype.randHourly = function(maxMultiple) {
   console.log("Store.prototype.randHourly called for "+this.storeName);
-  return rand(this.minCustPerHour, this.maxCustPerHour) * this.avgCookiePerSale;
+  return rand(this.minCustPerHour, this.maxCustPerHour * maxMultiple) * this.avgCookiePerSale;
 };
 
 Store.prototype.generateHourlySales = function() {
@@ -32,8 +32,8 @@ Store.prototype.generateHourlySales = function() {
   // generate a value for each hour we are open
   for(var i = 0; i<=queryHours(); i++) {
     // stretch goal, normalize the customers according to this time scale
-    var maxCoeff = [0.5, 0.75, 1.0, 0.6, 0.8, 1.0, 0.7, 0.4, 0.6, 0.9, 0.7, 0.5, 0.3, 0.4, 0.6];
-    var sales = Math.round(this.randHourly(maxCoeff[i]));
+    var traffic = [0.5, 0.75, 1.0, 0.6, 0.8, 1.0, 0.7, 0.4, 0.6, 0.9, 0.7, 0.5, 0.3, 0.4, 0.6];
+    var sales = Math.round(this.randHourly(traffic[i]));
     this.totalSales += sales;
     this.hourlySales.push(sales);
   }
