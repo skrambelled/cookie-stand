@@ -32,8 +32,8 @@ Store.prototype.generateHourlySales = function() {
   // generate a value for each hour we are open
   for(var i = 0; i<=queryHours(); i++) {
     // stretch goal, normalize the customers according to this time scale
-    var maxCoeff = [0.5, 0.75, 1, 0.6, 0.8, 1, 0.7, 0.4, 0.6, 0.9, 0.7, 0.5, 0.3, 0.4, 0.6];
-    var sales = Math.round(this.randHourly()*maxCoeff[i]);
+    var maxCoeff = [0.5, 0.75, 1.0, 0.6, 0.8, 1.0, 0.7, 0.4, 0.6, 0.9, 0.7, 0.5, 0.3, 0.4, 0.6];
+    var sales = Math.round(this.randHourly(maxCoeff[i]));
     this.totalSales += sales;
     this.hourlySales.push(sales);
   }
