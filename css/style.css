@@ -16,7 +16,21 @@ body {
   background: lightgray;
 }
 
+main img {
+  height: 200px;
+  width: 200px;
+}
+
 /* Styling for the home page */
+#locations td {
+  width: 100px;
+  text-align: right;
+  padding-left: 15px;
+}
+
+#locations th {
+  text-align: right;
+}
 
 /* Styling for the sales report page */
 
