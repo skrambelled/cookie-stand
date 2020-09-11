@@ -9,14 +9,43 @@
 <body>
   <header><h1>Hourly Sales Report</h1></header>
 
-  <section>
+  <div>
     Cookie sales hourly:
     <table id="salesTable">
     </table>
     Employees required hourly:
     <table id="employeesTable">
     </table>
-  </section>
+  </div>
+
+  <div>
+    <form id="create-a-store">
+      <fieldset>
+        <legend>Open a new store</legend>
+
+        <label for="form_location">Location:
+          <input type="text" id="form_location" name="form_location" required>
+        </label>
+      
+        <label for="form_min">Expected min customers per hour:
+          <input type="number" id="form_min" name="form_min" required>
+        </label>
+        
+        <label for="form_max">Expected max customers per hour:
+          <input type="number" id="form_max" name="form_max" required>
+        </label>
+        
+        <label for="form_avg">Average cookies sold per customer:
+          <input type="number" step=.1 id="form_avg" name="form_avg" required>
+        </label>
+
+
+        <button>
+          submit
+        </button>
+      </fieldset>
+    </form>
+  </div>
 
   <footer>
     <script type="text/javascript" src="js/sales_report.js"></script>

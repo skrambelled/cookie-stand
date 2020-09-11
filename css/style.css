@@ -36,14 +36,11 @@ main img {
 
 table {
   border-collapse: collapse;
+  empty-cells: hide;
 }
 
 #grandTotal {
   font-size: 20px;
-}
-
-td {
-  width: 50px;
 }
 
 tfoot > tr {
@@ -52,23 +49,49 @@ tfoot > tr {
 
 tfoot > tr > td {
   text-align: right;
-}
-
-
-.total {
   color: rgb(0, 59, 0);
-  text-align: right;
   font-weight: bold;
 }
 
-.cookiesSold {
+
+#salesTable tbody > tr > td,
+#employeesTable tbody > tr > td
+{
   border: solid thin grey;
   text-align: right;
   padding: 5px;
+  width: 30px;
+  height: 20px;
 }
 
-.employees {
-  border: solid thin darkred;
-  text-align: right;
+/* Styling for the store creation form */
+
+form{
+  width: 200px;
+}
+
+input {
+  color: rgb(32, 32, 32);
+  background-color: rgb(241, 241, 241);
+  font-size: 120%;
   padding: 5px;
+  border: 1px solid rgb(0, 0, 0);
+  outline: none;
+  display: block;
+  
+}
+
+input:focus {
+  background-color: rgb(185, 185, 185);
+  border: 1px solid rgb(135, 0, 0);
+  transition: background-color .25s;
+}
+
+input[type=submit]:hover {
+  background-color: rgb(185, 185, 185);
+  transition: background-color .25s;
+}
+
+input[type=text] {
+  margin: 0px 5px 10px 5px;
 }
