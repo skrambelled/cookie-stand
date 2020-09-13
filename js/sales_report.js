@@ -59,7 +59,8 @@ Store.prototype.generateHourlySales = function() {
 };
 
 Store.prototype.renderInSalesTableBody = function() {
-  var tbody = document.getElementById("salesTable").firstElementChild.nextElementSibling;
+  var table = document.getElementById("salesTable");
+  var tbody = table.getElementsByTagName("tbody")[0];
 
   // create a row
   var row = document.createElement('tr');
@@ -83,7 +84,8 @@ Store.prototype.renderInSalesTableBody = function() {
 };
 
 Store.prototype.renderInEmployeesTableBody = function() {
-  var tbody = document.getElementById("employeesTable").firstElementChild.nextElementSibling;
+  var table = document.getElementById("employeesTable");
+  var tbody = table.getElementsByTagName("tbody")[0];
   // create a row
   var row = document.createElement('tr');
   tbody.append(row);
@@ -168,7 +170,7 @@ function createTableFoot(table) {
 
 function calcFooterTotals() {
   var table = document.getElementById("salesTable");
-  var tfoot = table.childNodes[3];
+  var tfoot = table.getElementsByTagName("tfoot")[0];
   var row = tfoot.firstElementChild;
 
   // grab the cells on the footer row
