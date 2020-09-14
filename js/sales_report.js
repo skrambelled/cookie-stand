@@ -10,11 +10,11 @@ function rand(min, max) {
 
 
 var Stores = [
-  new Store('seattle', 23, 65, 6.3),
-  new Store('tokyo', 3, 24, 1.2),
-  new Store('dubai', 11, 38, 3.7),
-  new Store('paris', 20, 38, 2.3),
-  new Store('lima', 2, 16, 4.6)
+  new Store('Seattle', 23, 65, 6.3),
+  new Store('Tokyo', 3, 24, 1.2),
+  new Store('Dubai', 11, 38, 3.7),
+  new Store('Paris', 20, 38, 2.3),
+  new Store('Lima', 2, 16, 4.6)
 ];
 
 function Store(name, min, max, avg) {
